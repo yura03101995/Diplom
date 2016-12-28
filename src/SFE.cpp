@@ -22,6 +22,7 @@ vector<string> SFE::keyWords = [] {
 	v.push_back("nand");
 	v.push_back("nor");
 	v.push_back("xnor");
+	v.push_back("buf");
 	v.push_back("wire");
     return v;
 }();
@@ -279,6 +280,10 @@ SFE::SFE(string filename): pv(filename){
 		else
 		if(lexem == "xnor"){
 			lexem = setGate(XNOR);
+		}
+		else
+		if(lexem == "buf"){
+			lexem = setGate(BUF);
 		}
 		else
 		{
