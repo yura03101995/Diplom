@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1.\hskip .5em\relax }\textbf {Введение}}{3}{section.1}
+\contentsline {section}{\numberline {2.\hskip .5em\relax }\textbf {Основные определения}}{4}{section.2}
+\contentsline {section}{\numberline {3.\hskip .5em\relax }\textbf {Постановка задачи}}{6}{section.3}
+\contentsline {section}{\numberline {4.\hskip .5em\relax }Основная часть}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1.\hskip .5em\relax }\textbf {Реализация и тестирование способа представления СФЭ на ЭВМ}}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2.\hskip .5em\relax }\textbf {Выделение набора признаков СФЭ, которые будут использоваться для машинного обучения}}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3.\hskip .5em\relax }\textbf {Реализация и тестирование алгоритмов вычисления признаков схемы}}{9}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4.\hskip .5em\relax }\textbf {Реализация алгоритма построения случайных СФЭ}}{10}{subsection.4.4}
+\contentsline {section}{\numberline {5.\hskip .5em\relax }Полученные результаты}{11}{section.5}
+\contentsline {section}{\numberline {6.\hskip .5em\relax }Приложение}{12}{section.6}
