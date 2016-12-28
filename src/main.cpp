@@ -23,6 +23,10 @@ int main(int argc, char ** argv){
 	cout << "AND percent: " << schema.getPercentageTypeGate(AND) << endl;
 	cout << "OR percent: " << schema.getPercentageTypeGate(OR) << endl;
 	cout << "NOT percent: " << schema.getPercentageTypeGate(NOT) << endl;
+	cout << "XOR percent: " << schema.getPercentageTypeGate(XOR) << endl;
+	cout << "XNOR percent: " << schema.getPercentageTypeGate(XNOR) << endl;
+	cout << "BUF percent: " << schema.getPercentageTypeGate(BUF) << endl;
+	cout << "NOR percent: " << schema.getPercentageTypeGate(NOR) << endl;
 	cout << "NAND percent: " << schema.getPercentageTypeGate(NAND) << endl << endl;
 
 	cout << "Max input degree: " << schema.getMaxInputDegree() << endl;

@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/C/cygwin64/home/Юра/Work/PracticeMSU"
+			"follow_symlinks": true,
+			"path": "/home/yurka/MyWorks/PracticeMSU"
 		}
 	]
 }

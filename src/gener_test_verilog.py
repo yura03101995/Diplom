@@ -57,7 +57,7 @@ for i in range (wireN + outN):
             if j4>0:
                 j = j4
         used=used[:j]+'1'+used[j+1:]+'0'
-        print(random.choice(['not' ''', 'buf''']) + ' (' + name(i+inN) + ', ' + name(j) + ');', file=fout)
+        print(random.choice(['not','buf']) + ' (' + name(i+inN) + ', ' + name(j) + ');', file=fout)
     
     # if N=2, print XXX(x, y1, y2), XXX = and, or, xor, nand, not, xnor
     if 3 <= currN <= 5:

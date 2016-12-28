@@ -18,6 +18,10 @@ vector<string> SFE::keyWords = [] {
 	v.push_back("and");
 	v.push_back("or"); 
 	v.push_back("not");
+	v.push_back("xor");
+	v.push_back("nand");
+	v.push_back("nor");
+	v.push_back("xnor");
 	v.push_back("wire");
     return v;
 }();
@@ -261,6 +265,22 @@ SFE::SFE(string filename): pv(filename){
 			lexem = setGate(NOT);
 		}
 		else
+		if(lexem == "xor"){
+			lexem = setGate(XOR);
+		}
+		else
+		if(lexem == "nand"){
+			lexem = setGate(NAND);
+		}
+		else
+		if(lexem == "nor"){
+			lexem = setGate(NOR);
+		}
+		else
+		if(lexem == "xnor"){
+			lexem = setGate(XNOR);
+		}
+		else
 		{
 			cout << "Неизвестная лексема" << std::endl;
 			exit(-1);
@@ -428,7 +448,7 @@ int SFE::__getSignVar(Gate* g, vector<Vertex*>& signVert){
 		else{
 			bool f = true;
 		 	for(int j = 0; j < signVert.size(); j++){
-		 		if(signVert[i] == g->getInputs()[i]){
+		 		if(signVert[j] == g->getInputs()[i]){
 		 			f = false;
 		 			break;
 		 		}
@@ -453,7 +473,7 @@ int SFE::getCountSignVar(Gate * g){
 		else{
 			bool f = true;
 		 	for(int j = 0; j < signVert.size(); j++){
-		 		if(signVert[i] == g->getInputs()[i]){
+		 		if(signVert[j] == g->getInputs()[i]){
 		 			f = false;
 		 			break;
 		 		}
@@ -478,6 +498,7 @@ float SFE::getPercentageMiddleSignVar(){
 	}
 	return percentageMiddleSignVar / countGates / (float)inputs.size();
 }
+
 /*
 map< string, vector<short int> > getValueFunctions(){
 	map< string, vector<short int> > retMap;
