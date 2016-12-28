@@ -2,8 +2,8 @@
 #include <fstream>
 #include <string>
 
-#ifndef PARSER_VERILOG
-#define PARSER_VERILOG
+#ifndef PARSER_VERILOG_H
+#define PARSER_VERILOG_H
 using std::ifstream;
 using std::string;
 
@@ -17,6 +17,7 @@ public:
 	ParserVerilog(string name);
 	~ParserVerilog();
 	string getLexem();
+	ParserVerilog& operator=(const ParserVerilog& pv);
 };
 
 #endif

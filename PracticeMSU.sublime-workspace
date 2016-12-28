@@ -4,8 +4,20 @@
 		"selected_items":
 		[
 			[
+				"o",
+				"obj"
+			],
+			[
 				"lib",
 				"libparser"
+			],
+			[
+				"in",
+				"inputs"
+			],
+			[
+				"type",
+				"typeGate"
 			],
 			[
 				"ret",
@@ -50,10 +62,6 @@
 			[
 				"s",
 				"session"
-			],
-			[
-				"in",
-				"inprocess"
 			],
 			[
 				"filter",
@@ -506,19 +514,78 @@
 			[
 				"super_correspond_",
 				"super_correspond_func"
-			],
-			[
-				"some",
-				"somefile"
-			],
-			[
-				"d",
-				"d_end"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "headers/elements.h",
+			"settings":
+			{
+				"buffer_size": 619,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "example.v",
+			"settings":
+			{
+				"buffer_size": 33,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 489,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/SFE.cpp",
+			"settings":
+			{
+				"buffer_size": 1504,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/main.cpp",
+			"settings":
+			{
+				"buffer_size": 225,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#include <iostream>\n#include <vector>\n#include <string>\n#include \"elements.h\"\n#include \"parser.h\"\n\n\n#ifndef SFE_H\n#define SFE_H\nusing std::vector;\nusing std::string;\n\nclass SFE {\nprivate:\n	vector<Vertex*> inputs;\n	vector<Vertex*> outputs;\n	vector<Gate*> gates;\n	ParserVerilog pv;\n	static string[] keyWords = \n	static int sizeKeyWords;\npublic:\n	SFE();\n	SFE(string filename);\n	void setInputs();\n	void setOutputs();\n	void setGateAnd();\n	void setGateOr();\n	void setGateNot();\n};\n#endif",
+			"file": "headers/SFE.h",
+			"file_size": 549,
+			"file_write_time": 131263123660231662,
+			"settings":
+			{
+				"buffer_size": 481,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "headers/parser.h",
+			"settings":
+			{
+				"buffer_size": 371,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/parser.cpp",
+			"settings":
+			{
+				"buffer_size": 637,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -531,10 +598,7 @@
 	},
 	"console":
 	{
-		"height": 0.0,
-		"history":
-		[
-		]
+		"height": 0.0
 	},
 	"distraction_free":
 	{
@@ -547,6 +611,7 @@
 	},
 	"file_history":
 	[
+		"/C/cygwin64/home/Юра/Work/PracticeMSU/src/parser.cpp",
 		"/home/yurka/MyWorks/Practic/Makefile",
 		"/home/yurka/MyWorks/Practic/src/parser.cpp",
 		"/home/yurka/MyWorks/Practic/src/main.cpp",
@@ -673,8 +738,7 @@
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37.h",
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_help.c",
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_impl.c",
-		"/home/yurka/My works/Prac_MK/repos/HW2/TrubitsynYA-Autumn2014-HW2/includes/MyGraphs.cpp",
-		"/home/yurka/My works/Prac_MK/repos/HW2/TrubitsynYA-Autumn2014-HW2/Отчет.txt"
+		"/home/yurka/My works/Prac_MK/repos/HW2/TrubitsynYA-Autumn2014-HW2/includes/MyGraphs.cpp"
 	],
 	"find":
 	{
@@ -750,8 +814,219 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "headers/elements.h",
+					"settings":
+					{
+						"buffer_size": 619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								75,
+								75
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "example.v",
+					"settings":
+					{
+						"buffer_size": 33,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								478,
+								478
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/SFE.cpp",
+					"settings":
+					{
+						"buffer_size": 1504,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1035,
+								1035
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 594.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/main.cpp",
+					"settings":
+					{
+						"buffer_size": 225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								93,
+								93
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "headers/SFE.h",
+					"settings":
+					{
+						"buffer_size": 481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								350,
+								350
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "headers/parser.h",
+					"settings":
+					{
+						"buffer_size": 371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								213,
+								205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/parser.cpp",
+					"settings":
+					{
+						"buffer_size": 637,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								592,
+								592
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -790,7 +1065,6 @@
 	{
 		"height": 25.0
 	},
-	"project": "PracticeMSU.sublime-project",
 	"replace":
 	{
 		"height": 48.0
@@ -812,24 +1086,10 @@
 		],
 		"width": 0.0
 	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"settings":
-	{
-	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 270.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }

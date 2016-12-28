@@ -2,8 +2,8 @@
 #include <vector>
 
 
-#ifndef ELEMENTS
-#define ELEMENTS
+#ifndef ELEMENTS_H
+#define ELEMENTS_H
 using std::vector;
 using std::string;
 
@@ -15,17 +15,40 @@ enum typeGate{
 	XOR,
 	NAND,
 	NOR,
-	XNOR
+	XNOR,
+	BUF,
+	NULL_GATE
 };
 
-struct Vertex {
-	string name
+class Vertex {
+private:	
+	string name;
+	int outputDegree;
+	int depth;
+public:
+	Vertex(string s) : name(s), outputDegree(0), depth(0){};
+	virtual string getName(){ return name;};
+	virtual int getOutputDegree(){return outputDegree;};
+	virtual int getDepth(){return depth;};
+	virtual void setDepth(int d){depth = d; return;};
+	virtual void incrementOutputDegree(){outputDegree++; return;};
 };
 
-struct Gate {
-	vector<Vertex*> inputs,
-	typeGate type,
-	string name
+class Gate: public Vertex {
+private:
+	vector<Vertex*> inputs;
+	typeGate type;
+public:
+	Gate(string strName, typeGate t, vector<Vertex*> v) : Vertex(strName), type(t), inputs(v){};
+	string getName(){ return Vertex::getName();};
+	int getOutputDegree(){return Vertex::getOutputDegree();};
+	vector<Vertex*> getInputs(){return inputs;};
+	typeGate getType(){return type;}; 
+	int getDepth(){return Vertex::getDepth();};
+	void setDepth(int d){Vertex::setDepth(d); return;};
+	void setInputs(vector<Vertex*> v){inputs = v;return;};
+	void setType(typeGate t){type = t;return;};
+	void incrementOutputDegree(){Vertex::incrementOutputDegree(); return;};
 };
 
 #endif
