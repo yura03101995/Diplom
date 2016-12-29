@@ -4,12 +4,36 @@
 		"selected_items":
 		[
 			[
-				"lib",
-				"libparser"
+				"ret",
+				"return"
 			],
 			[
-				"ret",
-				"retStr"
+				"in",
+				"inputValues"
+			],
+			[
+				"get",
+				"getValueFunctions"
+			],
+			[
+				"name",
+				"nameVert"
+			],
+			[
+				"input",
+				"inputValues"
+			],
+			[
+				"__get",
+				"__getValueFunctionOnSet"
+			],
+			[
+				"out",
+				"outputs"
+			],
+			[
+				"lib",
+				"libparser"
 			],
 			[
 				"file",
@@ -32,10 +56,6 @@
 				"comment"
 			],
 			[
-				"get",
-				"getElementById"
-			],
-			[
 				"re",
 				"reload"
 			],
@@ -50,10 +70,6 @@
 			[
 				"s",
 				"session"
-			],
-			[
-				"in",
-				"inprocess"
 			],
 			[
 				"filter",
@@ -288,10 +304,6 @@
 				"it_v"
 			],
 			[
-				"name",
-				"name_node"
-			],
-			[
 				"rand",
 				"rand_add"
 			],
@@ -464,10 +476,6 @@
 				"dict_vars"
 			],
 			[
-				"out",
-				"output"
-			],
-			[
 				"di",
 				"dict_vars"
 			],
@@ -506,14 +514,6 @@
 			[
 				"super_correspond_",
 				"super_correspond_func"
-			],
-			[
-				"some",
-				"somefile"
-			],
-			[
-				"d",
-				"d_end"
 			]
 		]
 	},
@@ -523,18 +523,7 @@
 			"file": "src/main.cpp",
 			"settings":
 			{
-				"buffer_size": 1620,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "input in1, in2, in3, in4, in5, in6;\noutput out1;\nwire w1, w2, w3, w4, w5, w6, w7, w8;\nnot (w1, in2);\nnot (w2, in4);\nnot (w3, w2);\nnot (w4, in3);\nxor (w5, in5, in6);\nxor (w6, in5, w4);\nnand (w7, in4, w1, w3);\nor (w8, w3, w5);\nnor (out1, in1, w3, w7);\n",
-			"file": "example_2.v",
-			"file_size": 250,
-			"file_write_time": 131274313142069885,
-			"settings":
-			{
-				"buffer_size": 250,
+				"buffer_size": 1783,
 				"line_ending": "Unix"
 			}
 		},
@@ -542,8 +531,24 @@
 			"file": "src/SFE.cpp",
 			"settings":
 			{
-				"buffer_size": 12457,
+				"buffer_size": 15289,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "example.v",
+			"settings":
+			{
+				"buffer_size": 184,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "headers/SFE.h",
+			"settings":
+			{
+				"buffer_size": 1330,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -598,6 +603,7 @@
 	},
 	"file_history":
 	[
+		"/home/yurka/MyWorks/PracticeMSU/example_2.v",
 		"/home/yurka/Downloads/Otchet418-2016.doc",
 		"/home/yurka/MyWorks/PracticeMSU/example.v",
 		"/home/yurka/MyWorks/Practic/Makefile",
@@ -724,8 +730,7 @@
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_13_help.c",
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_13_impl.c",
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37.h",
-		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_help.c",
-		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_impl.c"
+		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_help.c"
 	],
 	"find":
 	{
@@ -810,15 +815,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1620,
+						"buffer_size": 1783,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								803,
-								803
+								1783,
+								1783
 							]
 						],
 						"settings":
@@ -827,26 +832,54 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 530.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "example_2.v",
+					"file": "src/SFE.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 250,
+						"buffer_size": 15289,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								175,
-								175
+								14948,
+								14948
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1483.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "example.v",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								184,
+								184
 							]
 						],
 						"settings":
@@ -860,20 +893,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/SFE.cpp",
+					"buffer": 3,
+					"file": "headers/SFE.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12457,
+						"buffer_size": 1330,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6615,
-								6615
+								928,
+								928
 							]
 						],
 						"settings":
@@ -882,13 +915,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1755.0,
+						"translation.y": 567.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "Makefile",
 					"semi_transient": false,
 					"settings":
@@ -915,7 +948,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "headers/elements.h",
 					"semi_transient": false,
 					"settings":
@@ -943,7 +976,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src/gener_test_verilog.py",
 					"semi_transient": false,
 					"settings":
