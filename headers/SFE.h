@@ -43,7 +43,10 @@ public:
 
 	int getCountSignVar(Gate * g);
 	float getPercentageMiddleSignVar();
-
+	map<string, short int> getValueFunctionsOnSet(map<string, short int> inputValues);
+	bool isT_1();
+	bool isT_0();
+	//bool isMonotony();
 	//map<string, vector<short int> > getValueFunctions();
 private:
 	int getDepthRecursive(Gate * g);
@@ -53,5 +56,6 @@ private:
 	string setOutputs();
 	string setWire();
 	string setGate(typeGate tg);
+	short int __getValueFunctionOnSet(Gate * g, map<string, short int> inputValues);
 };
 #endif

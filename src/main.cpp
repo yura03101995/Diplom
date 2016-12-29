@@ -40,5 +40,9 @@ int main(int argc, char ** argv){
 	cout << "Percent middle depth: " << schema.getPercentageMiddleDepth() << endl << endl;
 
 	cout << "Percent middle sign-var: " << schema.getPercentageMiddleSignVar() << endl << endl;
+	
+	cout << "Is T_1: " << schema.isT_1() << endl;
+	cout << "Is T_0: " << schema.isT_0() << endl;
+	//cout << "Is monotony: " << schema.isMonotony() << endl << endl;
 	return 0;
 }

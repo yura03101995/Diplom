@@ -519,6 +519,57 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/main.cpp",
+			"settings":
+			{
+				"buffer_size": 1620,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "input in1, in2, in3, in4, in5, in6;\noutput out1;\nwire w1, w2, w3, w4, w5, w6, w7, w8;\nnot (w1, in2);\nnot (w2, in4);\nnot (w3, w2);\nnot (w4, in3);\nxor (w5, in5, in6);\nxor (w6, in5, w4);\nnand (w7, in4, w1, w3);\nor (w8, w3, w5);\nnor (out1, in1, w3, w7);\n",
+			"file": "example_2.v",
+			"file_size": 250,
+			"file_write_time": 131274313142069885,
+			"settings":
+			{
+				"buffer_size": 250,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/SFE.cpp",
+			"settings":
+			{
+				"buffer_size": 12457,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 521,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "headers/elements.h",
+			"settings":
+			{
+				"buffer_size": 1236,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/gener_test_verilog.py",
+			"settings":
+			{
+				"buffer_size": 3391,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -547,6 +598,7 @@
 	},
 	"file_history":
 	[
+		"/home/yurka/Downloads/Otchet418-2016.doc",
 		"/home/yurka/MyWorks/PracticeMSU/example.v",
 		"/home/yurka/MyWorks/Practic/Makefile",
 		"/home/yurka/MyWorks/Practic/src/parser.cpp",
@@ -673,8 +725,7 @@
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_13_impl.c",
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37.h",
 		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_help.c",
-		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_impl.c",
-		"/home/yurka/My works/Prac_MK/repos/HW2/TrubitsynYA-Autumn2014-HW2/includes/MyGraphs.cpp"
+		"/home/yurka/My works/GraphForMM/graph_x11/X11/metod_37_impl.c"
 	],
 	"find":
 	{
@@ -750,8 +801,176 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								803,
+								803
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "example_2.v",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/SFE.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6615,
+								6615
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1755.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								332,
+								332
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "headers/elements.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1236,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								132,
+								132
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 36.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/gener_test_verilog.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3391,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1719,
+								1719
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

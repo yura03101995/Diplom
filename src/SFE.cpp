@@ -10,6 +10,8 @@ using std::vector;
 using std::string;
 using std::endl;
 using std::pair;
+using std::map;
+using std::make_pair;
 
 vector<string> SFE::keyWords = [] {
     vector<string> v;
@@ -502,6 +504,129 @@ float SFE::getPercentageMiddleSignVar(){
 		percentageMiddleSignVar += getCountSignVar(gates[i]);
 	}
 	return percentageMiddleSignVar / countGates / (float)inputs.size();
+}
+
+short int SFE::__getValueFunctionOnSet(Gate * g, map<string, short int> inputValues){
+	short int retVal = -1;
+	for(int i = 0; i < g->getInputs().size(); i++){
+		Gate* tmp = dynamic_cast<Gate*>(g->getInputs()[i]);
+		if(tmp){
+			if(retVal == -1){
+				retVal = __getValueFunctionOnSet(tmp, inputValues);
+			}
+			else{
+				switch(g->getType()){
+					case AND:
+					case NAND:
+							retVal = retVal & __getValueFunctionOnSet(tmp, inputValues);
+							break;
+					case OR :
+					case NOR:
+							retVal = retVal | __getValueFunctionOnSet(tmp, inputValues);
+							break;
+					case XOR:
+					case XNOR:
+							retVal = retVal ^ __getValueFunctionOnSet(tmp, inputValues);
+							break;
+					default:
+						break;
+				}
+			}
+		}
+		else{
+			string nameVert = g->getInputs()[i]->getName();
+			for (auto it = inputValues.begin(); it != inputValues.end(); ++it)
+			{
+				if(it->first == nameVert){
+					if(retVal == -1){
+						switch(g->getType()){
+							case NOT: 
+									retVal = !(it->second);
+									break;
+							case BUF:
+							default:
+									retVal = it->second;
+									break;
+						}
+					}
+					else{
+						switch(g->getType()){
+							case AND:
+							case NAND:
+									retVal = retVal & it->second;
+									break;
+							case OR :
+							case NOR:
+									retVal = retVal | it->second;
+									break;
+							case XOR:
+							case XNOR:
+									retVal = retVal ^ it->second;
+									break;
+							default:
+								break;
+						}
+					}
+				}
+				break;
+			}
+		}
+	}
+	switch(g->getType()){
+		case NAND:
+		case NOR:
+		case XNOR:
+		case NOT:
+				retVal = !retVal;
+				break;
+		default:
+			break;
+	}
+	return retVal;
+}
+
+map<string, short int> SFE::getValueFunctionsOnSet(map<string, short int> inputValues){
+	map< string, short int > retMap;
+	for(int i = 0; i < outputs.size(); i++){
+		string name_out = outputs[i]->getName();
+		short int valFunc = __getValueFunctionOnSet(outputs[i], inputValues); 
+		retMap.insert(pair<string, short int>(name_out, valFunc));
+	}
+	return retMap;
+}
+
+bool SFE::isT_1(){
+	map<string, short int> inputValues;
+	for(int i = 0; i < inputs.size(); i++){
+		inputValues.insert(pair<string,short int>(inputs[i]->getName(), 1));
+	}
+	map<string, short int> outputValue = getValueFunctionsOnSet(inputValues);
+	for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
+	{
+		if(it->second == 0){
+			return false;
+		}
+	}
+	return true;
+}
+
+bool SFE::isT_0(){
+	map<string, short int> inputValues;
+	for(int i = 0; i < inputs.size(); i++){
+		inputValues.insert(pair<string,short int>(inputs[i]->getName(), 0));
+	}
+	map<string, short int> outputValue = getValueFunctionsOnSet(inputValues);
+	for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
+	{
+		if(it->second == 1){
+			return false;
+		}
+	}
+	return true;
+}
+/*
+bool SFE::isMonotony(){
+	int n = 
 }
 
 /*
