@@ -41,8 +41,27 @@ int main(int argc, char ** argv){
 
 	cout << "Percent middle sign-var: " << schema.getPercentageMiddleSignVar() << endl << endl;
 	
-	cout << "Is T_1: " << schema.isT_1() << endl;
-	cout << "Is T_0: " << schema.isT_0() << endl;
-	//cout << "Is monotony: " << schema.isMonotony() << endl << endl;
+	map< string, bool > T_1 = schema.isT_1();
+	map< string, bool > T_0 = schema.isT_0();
+	map< string, bool > linear = schema.isLinear();
+	//map< string, bool > monotone = schema.isMonotone();
+
+	for(auto it = T_1.begin(); it != T_1.end(); ++it){	
+		cout << it->first << " is T_1: " << it->second << endl;
+	}
+	cout << endl;
+	for(auto it = T_0.begin(); it != T_0.end(); ++it){	
+		cout << it->first << " is T_0: " << it->second << endl;
+	}
+	cout << endl;
+	for(auto it = linear.begin(); it != linear.end(); ++it){	
+		cout << it->first << " is linear: " << it->second << endl;
+	}
+	/*cout << endl;
+	for(auto it = monotone.begin(); it != monotone.end(); ++it){	
+		cout << it->first << " is monotone: " << it->second << endl;
+	}*/
+	cout << endl << endl;
+	schema.printFunction();
 	return 0;
 }

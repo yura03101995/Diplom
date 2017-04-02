@@ -11,6 +11,7 @@
 using std::vector;
 using std::string;
 using std::map;
+using std::pair;
 
 class SFE {
 private:
@@ -25,9 +26,12 @@ public:
 	SFE();
 	SFE(string filename);
 
+	int getCountOut() { return outputs.size();}
+	int getCountIn() { return inputs.size();}
 	void printGates();
 	void printInputs();
 	void printOutputs();
+	void printFunction();
 	
 	float getPercentageTypeGate(typeGate tg);
 	
@@ -43,11 +47,12 @@ public:
 
 	int getCountSignVar(Gate * g);
 	float getPercentageMiddleSignVar();
-	map<string, short int> getValueFunctionsOnSet(map<string, short int> inputValues);
-	bool isT_1();
-	bool isT_0();
-	//bool isMonotony();
-	//map<string, vector<short int> > getValueFunctions();
+	map< string, bool > getValueFunctionsOnSet(map<string, bool > inputValues);
+	map< string, bool > isT_1();
+	map< string, bool > isT_0();
+	map< string, bool > isLinear();
+	//vector<pair<string,bool> > isMonotone();
+	//vector<pair<string, bool> > getMonotoneOut();
 private:
 	int getDepthRecursive(Gate * g);
 	void setDepthRecursive();
@@ -56,6 +61,6 @@ private:
 	string setOutputs();
 	string setWire();
 	string setGate(typeGate tg);
-	short int __getValueFunctionOnSet(Gate * g, map<string, short int> inputValues);
+	bool __getValueFunctionOnSet(Gate * g, map<string, bool> inputValues);
 };
 #endif

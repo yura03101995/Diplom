@@ -5,12 +5,8 @@
 #include <vector>
 #include <string>
 
-using std::cout; 
-using std::vector;
-using std::string;
+using std::cout;
 using std::endl;
-using std::pair;
-using std::map;
 using std::make_pair;
 
 vector<string> SFE::keyWords = [] {
@@ -211,6 +207,34 @@ void SFE::printGates(){
 		cout << endl << "             depth: " << curr_output->getDepth();
 		cout << endl << "             count sign-var: " << getCountSignVar(curr_output) << endl << endl; 
 	}
+}
+
+void SFE::printFunction(){
+	map<string, bool> inputValues;
+	int N = 1;
+	for(int i = 0; i < inputs.size(); ++i){
+		N *= 2;
+	}
+	for(int j = 0; j < N; ++j){
+		int k = 1;
+		for(int i = 0; i < inputs.size(); i++){
+			inputValues.insert(pair<string,short int>(inputs[i]->getName(), ((k & j) >> i) ));
+			k *= 2;
+		}
+		for(auto it = inputValues.begin(); it != inputValues.end(); ++it){
+			cout << it->first << " " << it->second << "   ";
+		}
+		map<string, bool> outputValue = getValueFunctionsOnSet(inputValues);
+		cout << "   ";
+		for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
+		{
+			cout << it->first << " " << it->second << "   ";
+		}
+		cout << endl;
+		inputValues.clear();
+		outputValue.clear();
+	}
+	return;
 }
 
 int SFE::getDepthRecursive(Gate * g){
@@ -506,7 +530,7 @@ float SFE::getPercentageMiddleSignVar(){
 	return percentageMiddleSignVar / countGates / (float)inputs.size();
 }
 
-short int SFE::__getValueFunctionOnSet(Gate * g, map<string, short int> inputValues){
+bool SFE::__getValueFunctionOnSet(Gate * g, map<string, bool> inputValues){
 	short int retVal = -1;
 	for(int i = 0; i < g->getInputs().size(); i++){
 		Gate* tmp = dynamic_cast<Gate*>(g->getInputs()[i]);
@@ -567,8 +591,8 @@ short int SFE::__getValueFunctionOnSet(Gate * g, map<string, short int> inputVal
 								break;
 						}
 					}
+					break;
 				}
-				break;
 			}
 		}
 	}
@@ -576,7 +600,6 @@ short int SFE::__getValueFunctionOnSet(Gate * g, map<string, short int> inputVal
 		case NAND:
 		case NOR:
 		case XNOR:
-		case NOT:
 				retVal = !retVal;
 				break;
 		default:
@@ -585,50 +608,112 @@ short int SFE::__getValueFunctionOnSet(Gate * g, map<string, short int> inputVal
 	return retVal;
 }
 
-map<string, short int> SFE::getValueFunctionsOnSet(map<string, short int> inputValues){
-	map< string, short int > retMap;
+map< string, bool > SFE::getValueFunctionsOnSet(map< string, bool> inputValues){
+	map< string, bool > retMap;
 	for(int i = 0; i < outputs.size(); i++){
 		string name_out = outputs[i]->getName();
-		short int valFunc = __getValueFunctionOnSet(outputs[i], inputValues); 
-		retMap.insert(pair<string, short int>(name_out, valFunc));
+		bool valFunc = __getValueFunctionOnSet(outputs[i], inputValues); 
+		retMap.insert(make_pair(name_out, valFunc));
 	}
 	return retMap;
 }
 
-bool SFE::isT_1(){
-	map<string, short int> inputValues;
+map< string, bool > SFE::isT_1(){
+	map<string, bool > inputValues;
+	map<string, bool > retVec;
 	for(int i = 0; i < inputs.size(); i++){
-		inputValues.insert(pair<string,short int>(inputs[i]->getName(), 1));
+		inputValues.insert(make_pair(inputs[i]->getName(), 1));
 	}
-	map<string, short int> outputValue = getValueFunctionsOnSet(inputValues);
+	map<string, bool > outputValue = getValueFunctionsOnSet(inputValues);
 	for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
 	{
-		if(it->second == 0){
-			return false;
-		}
+		retVec.insert(make_pair(it->first, it->second ));
 	}
-	return true;
+	return retVec;
 }
 
-bool SFE::isT_0(){
+map< string, bool > SFE::isT_0(){
+	map<string, bool > inputValues;
+	map<string, bool > retVec;
+	for(int i = 0; i < inputs.size(); i++){
+		inputValues.insert(make_pair(inputs[i]->getName(), 0));
+	}
+	map<string, bool > outputValue = getValueFunctionsOnSet(inputValues);
+	for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
+	{
+		retVec.insert(make_pair(it->first, !(it->second) ));
+	}
+	return retVec;
+}
+
+map< string, bool > SFE::isLinear(){
+	map< string, bool > inputValues;
+	map< string, bool > retVal;
+	for(auto it = outputs.begin(); it != outputs.end(); ++it){
+		retVal.insert(make_pair((*it)->getName(), true));
+	}
+	int N = 1;
+	for(int i = 0; i < inputs.size(); ++i){
+		N *= 2;
+	}
+	map< string, bool > odd = isT_0();
+ 	for(int j = 1; j < N; ++j){
+		int k = 1;
+		int count_of_ones = 0;
+		for(int i = 0; i < inputs.size(); i++){
+			inputValues.insert(make_pair(inputs[i]->getName(), ((k & j) >> i) ));
+			count_of_ones += ((k & j) >> i);
+			k *= 2;
+		}
+		map< string, bool > outputValue = getValueFunctionsOnSet(inputValues);
+		if(count_of_ones % 2){
+			for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
+			{
+				if((!(odd[it->first])) == it->second){
+					retVal[it->first] = false;
+				}
+			}
+		}
+		else {
+			for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
+			{
+				if(odd[it->first] == it->second){
+					retVal[it->first] = false;
+				}
+			}
+		}
+		inputValues.clear();
+		outputValue.clear();
+	}
+	return retVal;
+}
+/*
+map< string, bool > SFE::isMonotone(){
+	vector<pair<string,bool> > retVec;
 	map<string, short int> inputValues;
+	for(int i = 0; i < outputs.size(); ++i){
+		retVec.push_back(make_pair(outputs[i]->getName(), true));
+	}
 	for(int i = 0; i < inputs.size(); i++){
 		inputValues.insert(pair<string,short int>(inputs[i]->getName(), 0));
 	}
-	map<string, short int> outputValue = getValueFunctionsOnSet(inputValues);
-	for (auto it = outputValue.begin(); it != outputValue.end(); ++it)
-	{
-		if(it->second == 1){
-			return false;
-		}
-	}
-	return true;
+	retVec = getMonotoneOut(inputValues);
+	return retVec;
 }
 /*
-bool SFE::isMonotony(){
-	int n = 
+map< string, bool > getMonotoneOut(map< string, bool> mapIn){
+	// @TODO: change algorithm;
+	bool flag_for_ones = true;
+	for(auto it = mapIn.begin(); it != mapIn.end(); ++it){
+		if(it->second == 0){
+			flag_for_ones = false;
+			break;
+		}
+	}
+	if(flag_for_ones){
+		return getValueFunctionsOnSet()
+	}
 }
-
 /*
 map< string, vector<short int> > getValueFunctions(){
 	map< string, vector<short int> > retMap;
