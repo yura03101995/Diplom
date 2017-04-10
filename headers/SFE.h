@@ -21,6 +21,7 @@ private:
 	int maxDepth;
 	ParserVerilog pv;
 	static vector<string> keyWords;
+	static vector<string> keySymbols;
 	static vector<string> gateOperations;
 public:
 	SFE();
@@ -61,6 +62,7 @@ private:
 	string setOutputs();
 	string setWire();
 	string setGate(typeGate tg);
+	string skip();
 	bool __getValueFunctionOnSet(Gate * g, map<string, bool> inputValues);
 };
 #endif

@@ -25,6 +25,15 @@ bin:
 main: libSFE.a bin
 	g++ ./src/main.cpp -g -o ./bin/main -std=c++11 -I ./headers -L./lib -lSFE -lparser 
 
+converter: libconverter.a bin
+	g++ ./src/converter_app.cpp -g -o ./bin/converter_app -std=c++11 -I ./headers -L./lib -lconverter -lparser
+
+libconverter.a: converter.o lib
+	ar -rcs ./lib/libconverter.a ./obj/converter.o
+
+converter.o: libparser.a ./src/converter.cpp obj
+	g++ ./src/converter.cpp -c -g -std=c++11 -I ./headers -o ./obj/converter.o -L./lib -lparser
+
 clean:
 	rm -rf ./obj
 	rm -rf ./lib

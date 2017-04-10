@@ -25,6 +25,15 @@ vector<string> SFE::keyWords = [] {
     return v;
 }();
 
+vector<string> SFE::keySymbols = [] {
+	vector<string> v;
+	v.push_back("~");
+	v.push_back("&");
+	v.push_back("^");
+	v.push_back("|");
+	return v;
+}();
+
 vector<string> SFE::gateOperations = [] {
 	vector<string> v(9);
     v[NOT] = "NOT";
@@ -163,6 +172,25 @@ string SFE::setGate(typeGate tg){
 		}
 		find = false;
 	}
+	return "";
+}
+
+string SFE::skip(){
+	string lexem;
+	lexem = pv.getLexem();
+	bool find = false;
+	while(1){
+		lexem = pv.getLexem();
+		for(int i = 0; i < keyWords.size(); i++){
+			if(keyWords[i] == lexem)
+			{
+				return lexem;
+			}
+		}
+		if(lexem == ""){
+			return lexem;
+		}
+	}
 }
 
 void SFE::printInputs(){
@@ -268,6 +296,9 @@ void SFE::setDepthRecursive(){
 SFE::SFE(string filename): pv(filename){
 	string lexem = pv.getLexem();
 	while(lexem != ""){
+		if(lexem == "module" || lexem == "//"){
+			lexem = skip();
+		}
 		if(lexem == "input"){ 
 			lexem = setInputs();
 		}
@@ -313,7 +344,7 @@ SFE::SFE(string filename): pv(filename){
 		}
 		else
 		{
-			cout << "Неизвестная лексема" << std::endl;
+			cout << "Неизвестная лексема: " << lexem << std::endl;
 			exit(-1);
 		}
 	}
