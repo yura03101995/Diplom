@@ -1,9 +1,10 @@
-\contentsline {section}{\numberline {1.\hskip .5em\relax }\textbf {Введение}}{3}{section.1}
-\contentsline {section}{\numberline {2.\hskip .5em\relax }\textbf {Основные определения}}{5}{section.2}
-\contentsline {section}{\numberline {3.\hskip .5em\relax }\textbf {Постановка задачи}}{7}{section.3}
-\contentsline {section}{\numberline {4.\hskip .5em\relax }Основная часть}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1.\hskip .5em\relax }\textbf {Выделение набора признаков СФЭ, которые будут использоваться для машинного обучения}}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2.\hskip .5em\relax }\textbf {Реализация способа представления СФЭ на ЭВМ}}{9}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3.\hskip .5em\relax }\textbf {Реализация алгоритмов вычисления признаков схемы}}{10}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4.\hskip .5em\relax }\textbf {Реализация алгоритма построения случайных СФЭ}}{11}{subsection.4.4}
-\contentsline {section}{\numberline {5.\hskip .5em\relax }Полученные результаты}{12}{section.5}
+\select@language {russian}
+\contentsline {section}{\numberline {1}\textbf {Введение}}{3}{section.1}
+\contentsline {section}{\numberline {2}\textbf {Основные определения}}{5}{section.2}
+\contentsline {section}{\numberline {3}\textbf {Постановка задачи}}{7}{section.3}
+\contentsline {section}{\numberline {4}Основная часть}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}\textbf {Выделение набора признаков СФЭ, которые будут использоваться для машинного обучения}}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}\textbf {Реализация способа представления СФЭ на ЭВМ}}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}\textbf {Реализация алгоритмов вычисления признаков схемы}}{10}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}\textbf {Реализация алгоритма построения случайных СФЭ}}{11}{subsection.4.4}
+\contentsline {section}{\numberline {5}Полученные результаты}{12}{section.5}
