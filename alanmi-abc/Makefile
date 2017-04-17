@@ -187,11 +187,13 @@ tags:
 $(PROG): $(OBJ)
 	@echo "$(MSG_PREFIX)\`\` Building binary:" $(notdir $@)
 	$(VERBOSE)$(LD) -o $@ $^ $(LIBS)
+	
 
-lib$(PROG).a: $(LIBOBJ)
+lib$(PROG).a: $(LIBOBJ) 
 	@echo "$(MSG_PREFIX)\`\` Linking:" $(notdir $@)
-	$(VERBOSE)ar rv $@ $?
-	$(VERBOSE)ranlib $@
+	mkdir ../lib
+	$(VERBOSE)ar rv ../lib/$@ $?
+	$(VERBOSE)ranlib ../lib/$@
 
 lib$(PROG).so: $(LIBOBJ)
 	@echo "$(MSG_PREFIX)\`\` Linking:" $(notdir $@)

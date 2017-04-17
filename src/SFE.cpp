@@ -331,7 +331,7 @@ SFE::SFE(string filename): pv(filename){
 			lexem = setGate(NAND);
 		}
 		else
-		if(lexem == "nor"){
+		if(lexem == "nor" ){
 			lexem = setGate(NOR);
 		}
 		else

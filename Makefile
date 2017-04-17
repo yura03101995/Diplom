@@ -1,11 +1,20 @@
 
-all: main
+CXX 		=g++
+BIN_DIR 	=./bin
+LIB_DIR 	=./lib
+HEAD_DIR 	=./headers
+OBJ_DIR		=./obj
+SRC_DIR		=./src
+FLAGS		=-std=c++11 -g 
+LIB_ABC		=-labc -lm -ldl -rdynamic -lreadline -ltermcap -lpthread
 
-SFE.o:  libparser.a ./src/SFE.cpp obj
-	g++ ./src/SFE.cpp -c -g -std=c++11 -I ./headers -o ./obj/SFE.o -L./lib -lparser
+all: get_attr converter 
 
-parser.o: ./src/parser.cpp obj
-	g++ ./src/parser.cpp -c -g -I ./headers -o ./obj/parser.o
+SFE.o:  libparser.a $(SRC_DIR)/SFE.cpp obj
+	$(CXX) $(SRC_DIR)/SFE.cpp -c -I $(HEAD_DIR) -o $(OBJ_DIR)/SFE.o -L$(LIB_DIR) -lparser $(FLAGS) 
+
+parser.o: $(SRC_DIR)/parser.cpp obj
+	$(CXX) $(SRC_DIR)/parser.cpp -c -I $(HEAD_DIR) -o $(OBJ_DIR)/parser.o $(FLAGS)
 
 lib:
 	mkdir lib
@@ -14,25 +23,25 @@ obj:
 	mkdir obj
 
 libSFE.a: SFE.o lib
-	ar -rcs ./lib/libSFE.a ./obj/SFE.o
+	ar -rcs $(LIB_DIR)/libSFE.a $(OBJ_DIR)/SFE.o
 
 libparser.a: parser.o lib
-	ar -rcs ./lib/libparser.a ./obj/parser.o
+	ar -rcs $(LIB_DIR)/libparser.a $(OBJ_DIR)/parser.o
 
 bin:
 	mkdir bin
 
-main: libSFE.a bin
-	g++ ./src/main.cpp -g -o ./bin/main -std=c++11 -I ./headers -L./lib -lSFE -lparser 
+get_attr: libSFE.a bin
+	$(CXX) $(SRC_DIR)/get_attr.cpp -o $(BIN_DIR)/get_attr -I $(HEAD_DIR) -L$(LIB_DIR) -lSFE -lparser $(FLAGS)
 
-converter: libconverter.a bin
-	g++ ./src/converter_app.cpp -g -o ./bin/converter_app -std=c++11 -I ./headers -L./lib -lconverter -lparser
+converter: libconverter.a bin obj
+	$(CXX) $(SRC_DIR)/converter_app.cpp -o $(BIN_DIR)/converter_app -I $(HEAD_DIR) -L$(LIB_DIR) -lconverter -lparser $(LIB_ABC) $(FLAGS)
 
 libconverter.a: converter.o lib
-	ar -rcs ./lib/libconverter.a ./obj/converter.o
+	ar -rcs $(LIB_DIR)/libconverter.a $(OBJ_DIR)/converter.o
 
-converter.o: libparser.a ./src/converter.cpp obj
-	g++ ./src/converter.cpp -c -g -std=c++11 -I ./headers -o ./obj/converter.o -L./lib -lparser
+converter.o: libparser.a $(SRC_DIR)/converter.cpp obj
+	$(CXX) $(SRC_DIR)/converter.cpp -c -I $(HEAD_DIR) -o $(OBJ_DIR)/converter.o -L$(LIB_DIR) -lparser $(FLAGS)
 
 clean:
 	rm -rf ./obj

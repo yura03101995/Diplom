@@ -26,7 +26,11 @@ public:
 	ConverterToGateVerilog(string ifilename, string ofilename);
 	~ConverterToGateVerilog();
 private:
+	string setInputs();
+	string setOutputs();
+	string setWire();
 	string skip();
+	string convertGates(typeGate tg);
 };
 
 #endif
