@@ -1,0 +1,17 @@
+input ctrl0, ctrl1, in0, in1, in2, in3;
+output out;
+wire n8, n9, n10, n11, n12, n13, n14, n15, n16, n17, n18, n19, n20;
+not (n8, ctrl0);
+not (n9, ctrl1);
+nand (n10, n9, n8);
+nand (n11, ctrl1, n8);
+nand (n12, ctrl1, ctrl0);
+nand (n13, n12, in2);
+nand (n14, in3, ctrl1, ctrl0);
+nand (n15, n14, n13);
+nand (n16, n15, n11);
+nand (n17, in1, ctrl1, n8);
+nand (n18, n17, n16);
+nand (n19, n18, n10);
+nand (n20, in0, n9, n8);
+nand (out, n20, n19);

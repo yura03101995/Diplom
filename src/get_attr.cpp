@@ -6,20 +6,47 @@
 using std::string;
 using std::cout;
 using std::endl;
+using std::ofstream;
 
 int main(int argc, char ** argv){
-	string filename;
-	if(argc > 1){
-		filename = string(argv[1]);
+	string inFileName;
+	string outFileName;
+	ofstream fout;
+	if(argc == 3){
+		inFileName = string(argv[1]);
+		outFileName = string(argv[2]);
 	}
 	else{
 		cout << "Wrong arguments on command line" << endl;
 		return -1;
 	}
-	SFE schema(filename);
-	schema.printInputs();
-	schema.printGates();
-	schema.printOutputs();
+	fout.open( outFileName, std::ios_base::app );
+	SFE schema( inFileName );
+	fout << schema.getPercentageTypeGate(AND)  << ' ';
+	fout << schema.getPercentageTypeGate(OR)   << ' ';
+	fout << schema.getPercentageTypeGate(NOT)  << ' ';
+	fout << schema.getPercentageTypeGate(XOR)  << ' ';
+	fout << schema.getPercentageTypeGate(XNOR) << ' ';
+	fout << schema.getPercentageTypeGate(BUF)  << ' ';
+	fout << schema.getPercentageTypeGate(NOR)  << ' ';
+	fout << schema.getPercentageTypeGate(NAND) << ' ';
+
+	fout << schema.getMaxInputDegree() << ' ';
+	fout << schema.getMinInputDegree() << ' ';
+	fout << schema.getMiddleInputDegree() << ' ';
+
+	fout << schema.getMaxOutputDegree() << ' ';
+	fout << schema.getMinOutputDegree() << ' ';
+	fout << schema.getMiddleOutputDegree() << ' ';
+
+	fout << schema.getPercentageMiddleDepth() << ' ';
+
+	fout << schema.getPercentageMiddleSignVar() << endl;
+	fout.close();
+	//schema.printInputs();
+	//schema.printGates();
+	//schema.printOutputs();
+	/*
 	cout << "AND percent: " << schema.getPercentageTypeGate(AND) << endl;
 	cout << "OR percent: " << schema.getPercentageTypeGate(OR) << endl;
 	cout << "NOT percent: " << schema.getPercentageTypeGate(NOT) << endl;
@@ -41,7 +68,6 @@ int main(int argc, char ** argv){
 
 	cout << "Percent middle sign-var: " << schema.getPercentageMiddleSignVar() << endl << endl;
 	
-	/*
 	map< string, bool > T_1 = schema.isT_1();
 	map< string, bool > T_0 = schema.isT_0();
 	map< string, bool > linear = schema.isLinear();

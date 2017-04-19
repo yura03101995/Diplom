@@ -15,7 +15,11 @@ CURR_DIR_FILE=`dirname "$ABS_FILENAME"`
 CURR_DIR=$(pwd)
 MAIN_DIR=$CURR_DIR_FILE/..
 
-echo "Enter the directory $MAIN_DIR/alanmi-abc"
+pow() {
+  echo "$1^($2) - 1" | bc -ql
+}
+
+echo "Enter in the directory $MAIN_DIR/alanmi-abc"
 cd $MAIN_DIR/alanmi-abc
 
 make libabc.a
@@ -46,7 +50,7 @@ else
     echo "Directory $MAIN_DIR/mux/training already exist"
 fi
 
-echo "Enter the directory $MAIN_DIR/mux/training"
+echo "Enter in the directory $MAIN_DIR/mux/training"
 cd training
 
 
@@ -55,14 +59,17 @@ for i in {2..8..2}
 do
     echo -e "\033[32m Create multiplexers with $i address variables \033[0m"
     $PYTHON $MAIN_DIR/$SRC_DIR/gener_test_verilog.py "mux_$i" $i
-    $MAIN_DIR/$BIN_DIR/converter_app "mux_$i.v" "mux_$i.v" $MAIN_DIR/mcnc.genlib
-    OUT=$?
-    if [ $OUT -eq 0 ]
-    then
-        echo -e "\033[32m Creating multiplexers with $i address variables was SUCCESS! \033[0m"
-    else
-        echo -e "\033[31m Creating multiplexers with $i address variables was FAILED! \033[0m"
-    fi
+    for j in $(seq 0 $(pow 2 $i) )
+    do
+        $MAIN_DIR/$BIN_DIR/converter_app "mux_${i}_${j}.v" "mux_${i}_${j}.v" $MAIN_DIR/mcnc.genlib
+        OUT=$?
+        if [ $OUT -eq 0 ]
+        then
+            echo -e "\033[32m Creating multiplexer mux_${i}_${j} with $i address variables was SUCCESS! \033[0m"
+        else
+            echo -e "\033[31m Creating multiplexer mux_${i}_${j} with $i address variables was FAILED! \033[0m"
+        fi
+    done
 done
 
 echo "Exit from $MAIN_DIR/mux/training"
@@ -77,7 +84,7 @@ else
     echo "Directory $MAIN_DIR/mux/control already exist"
 fi
 
-echo "Enter the directory $MAIN_DIR/mux/control"
+echo "Enter in the directory $MAIN_DIR/mux/control"
 cd control
 
 echo -e "\033[32m Create control sample \033[0m"
@@ -85,16 +92,35 @@ for i in {3..9..2}
 do
     echo -e "\033[32m Create multiplexers with $i address variables \033[0m"
     $PYTHON $MAIN_DIR/$SRC_DIR/gener_test_verilog.py "mux_$i" $i
-    $MAIN_DIR/$BIN_DIR/converter_app "mux_$i.v" "mux_$i.v" $MAIN_DIR/mcnc.genlib 
-    OUT=$?
-    if [ $OUT -eq 0 ]
-    then
-        echo -e "\033[32m Creating multiplexers with $i address variables was SUCCESS! \033[0m"
-    else
-        echo -e "\033[31m Creating multiplexers with $i address variables was FAILED! \033[0m"
-    fi
+    for j in $(seq 0 $(pow 2 $i) )
+    do
+        $MAIN_DIR/$BIN_DIR/converter_app "mux_${i}_${j}.v" "mux_${i}_${j}.v" $MAIN_DIR/mcnc.genlib
+        OUT=$?
+        if [ $OUT -eq 0 ]
+        then
+            echo -e "\033[32m Creating multiplexer mux_${i}_${j} with $i address variables was SUCCESS! \033[0m"
+        else
+            echo -e "\033[31m Creating multiplexer mux_${i}_${j} with $i address variables was FAILED! \033[0m"
+        fi
+    done
 done
 
-    #comeback
+echo "Enter in the directory $MAIN_DIR"
+cd $MAIN_DIR
+echo "Construction of characteristic vectors for training"
+for i in $MAIN_DIR/mux/training/*
+do
+    $MAIN_DIR/bin/get_attr $i  $MAIN_DIR/mux/training/train_attr.out
+done
+echo -e "\033[32m Construction of characteristic vectors for training was SUCCESS \033[0m"
+
+echo "Construction of characteristic vectors for control"
+for i in $MAIN_DIR/mux/control/*
+do
+    $MAIN_DIR/bin/get_attr $i $MAIN_DIR/mux/control/control_attr.out
+done
+echo -e "\033[32m Construction of characteristic vectors for control was SUCCESS \033[0m"
+
+#comeback
 echo "Comeback to local directory"
 cd $CURR_DIR 

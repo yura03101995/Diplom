@@ -15,11 +15,11 @@ CURR_DIR_FILE=`dirname "$ABS_FILENAME"`
 CURR_DIR=$(pwd)
 MAIN_DIR=$CURR_DIR_FILE/..
 
-cd $MAIN_DIR
-if [[ -d "mux" ]]
-then
-    echo "rm -rf mux"
-    rm -rf mux
-fi
+#cd $MAIN_DIR
+#if [[ -d "mux" ]]
+#then
+#    echo "rm -rf mux"
+#    rm -rf mux
+#fi
 make clean
 cd $CURR_DIR
