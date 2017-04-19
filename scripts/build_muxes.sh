@@ -19,16 +19,6 @@ pow() {
   echo "$1^($2) - 1" | bc -ql
 }
 
-echo "Enter in the directory $MAIN_DIR/alanmi-abc"
-cd $MAIN_DIR/alanmi-abc
-
-make libabc.a
-
-echo "Exit from directory $MAIN_DIR/alanmi-abc"
-cd ..
-
-make
-
 if [[ ! -d "mux" ]]
 then
     echo "Creating directory $MAIN_DIR/mux ..."
@@ -120,7 +110,3 @@ do
     $MAIN_DIR/bin/get_attr $i $MAIN_DIR/mux/control/control_attr.out
 done
 echo -e "\033[32m Construction of characteristic vectors for control was SUCCESS \033[0m"
-
-#comeback
-echo "Comeback to local directory"
-cd $CURR_DIR 
