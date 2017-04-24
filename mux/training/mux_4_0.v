@@ -1,20 +1,73 @@
-module mux_4 ( ctrl0, ctrl1, ctrl2, ctrl3, in0, in1, in2, in3, in4, in5, in6, in7, in8, in9, in10, in11, in12, in13, in14, in15, out);
 input ctrl0, ctrl1, ctrl2, ctrl3, in0, in1, in2, in3, in4, in5, in6, in7, in8, in9, in10, in11, in12, in13, in14, in15;
 output out;
-assign out = ( ~ctrl0 & ~ctrl1 & ~ctrl2 & ctrl3  ) ? in1 : 
-             ( ~ctrl0 & ~ctrl1 & ctrl2 & ~ctrl3  ) ? in2 : 
-             ( ~ctrl0 & ~ctrl1 & ctrl2 & ctrl3  ) ? in3 : 
-             ( ~ctrl0 & ctrl1 & ~ctrl2 & ~ctrl3  ) ? in4 : 
-             ( ~ctrl0 & ctrl1 & ~ctrl2 & ctrl3  ) ? in5 : 
-             ( ~ctrl0 & ctrl1 & ctrl2 & ~ctrl3  ) ? in6 : 
-             ( ~ctrl0 & ctrl1 & ctrl2 & ctrl3  ) ? in7 : 
-             ( ctrl0 & ~ctrl1 & ~ctrl2 & ~ctrl3  ) ? in8 : 
-             ( ctrl0 & ~ctrl1 & ~ctrl2 & ctrl3  ) ? in9 : 
-             ( ctrl0 & ~ctrl1 & ctrl2 & ~ctrl3  ) ? in10 : 
-             ( ctrl0 & ~ctrl1 & ctrl2 & ctrl3  ) ? in11 : 
-             ( ctrl0 & ctrl1 & ~ctrl2 & ~ctrl3  ) ? in12 : 
-             ( ctrl0 & ctrl1 & ~ctrl2 & ctrl3  ) ? in13 : 
-             ( ctrl0 & ctrl1 & ctrl2 & ~ctrl3  ) ? in14 : 
-             ( ctrl0 & ctrl1 & ctrl2 & ctrl3  ) ? in15 : 
-             in0;
-endmodule
+wire n22, n23, n24, n25, n26, n27, n28, n29, n30, n31, n32, n33, n34, n35, n36, n37, n38, n39, n40, n41, n42, n43, n44, n45, n46, n47, n48, n49, n50, n51, n52, n53, n54, n55, n56, n57, n58, n59, n60, n61, n62, n63, n64, n65, n66, n67, n68, n69, n70, n71, n72, n73, n74, n75, n76, n77, n78, n79, n80, n81, n82, n83, n84, n85, n86, n87, n88, n89, n90;
+not (n22, ctrl0);
+not (n23, ctrl1);
+not (n24, ctrl2);
+not (n25, ctrl3);
+nand (n26, n25, n24, n23, n22);
+nand (n27, ctrl3, n24, n23, n22);
+nand (n28, n25, ctrl2, n23, n22);
+nand (n29, ctrl3, ctrl2, n23, n22);
+nand (n30, n25, n24, ctrl1, n22);
+nand (n31, ctrl3, n24, ctrl1, n22);
+nand (n32, n25, ctrl2, ctrl1, n22);
+nand (n33, ctrl3, ctrl2, ctrl1, n22);
+nand (n34, n25, n24, n23, ctrl0);
+nand (n35, ctrl3, n24, n23, ctrl0);
+nand (n36, n25, ctrl2, n23, ctrl0);
+nand (n37, ctrl3, ctrl2, n23, ctrl0);
+nand (n38, n25, n24, ctrl1, ctrl0);
+nand (n39, ctrl3, n24, ctrl1, ctrl0);
+nand (n40, n25, ctrl2, ctrl1, ctrl0);
+nand (n41, n40, in0);
+nand (n42, ctrl2, ctrl1, ctrl0);
+not (n43, n42);
+nand (n44, n43, in15, n25);
+nand (n45, n44, n41);
+nand (n46, n45, n39);
+nor (n47, n23, n22);
+nand (n48, n47, in14, ctrl3, n24);
+nand (n49, n48, n46);
+nand (n50, n49, n38);
+nand (n51, n47, in13, n25, n24);
+nand (n52, n51, n50);
+nand (n53, n52, n37);
+nor (n54, ctrl1, n22);
+nand (n55, n54, in12, ctrl3, ctrl2);
+nand (n56, n55, n53);
+nand (n57, n56, n36);
+nand (n58, n54, in11, n25, ctrl2);
+nand (n59, n58, n57);
+nand (n60, n59, n35);
+nand (n61, n54, in10, ctrl3, n24);
+nand (n62, n61, n60);
+nand (n63, n62, n34);
+nand (n64, n54, in9, n25, n24);
+nand (n65, n64, n63);
+nand (n66, n65, n33);
+nor (n67, n23, ctrl0);
+nand (n68, n67, in8, ctrl3, ctrl2);
+nand (n69, n68, n66);
+nand (n70, n69, n32);
+nand (n71, n67, in7, n25, ctrl2);
+nand (n72, n71, n70);
+nand (n73, n72, n31);
+nand (n74, n67, in6, ctrl3, n24);
+nand (n75, n74, n73);
+nand (n76, n75, n30);
+nand (n77, n67, in5, n25, n24);
+nand (n78, n77, n76);
+nand (n79, n78, n29);
+nor (n80, ctrl1, ctrl0);
+nand (n81, n80, in4, ctrl3, ctrl2);
+nand (n82, n81, n79);
+nand (n83, n82, n28);
+nand (n84, n80, in3, n25, ctrl2);
+nand (n85, n84, n83);
+nand (n86, n85, n27);
+nand (n87, n80, in2, ctrl3, n24);
+nand (n88, n87, n86);
+nand (n89, n88, n26);
+nand (n90, n80, in1, n25, n24);
+nand (out, n90, n89);

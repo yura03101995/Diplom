@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
+#include <ctime>
 
 using std::cout;
 using std::endl;
@@ -85,7 +86,9 @@ string SFE::setOutputs(){
 			return lexem;
 		}
 		vector<Vertex*> vect(0);
-		Gate * v = new Gate(lexem, NULL_GATE, vect);
+		set<Vertex*> s;
+		s.clear();	
+		Gate * v = new Gate(lexem, NULL_GATE, vect, s);
 		v->incrementOutputDegree(); //если мы считаем, что присоединение к выходу - увеличивает 
 		outputs.push_back(v);
 	}
@@ -105,7 +108,9 @@ string SFE::setWire(){
 			return lexem;
 		}
 		vector<Vertex*> vect(0);
-		Gate * v = new Gate(lexem, NULL_GATE, vect);
+		set<Vertex*> s;
+		s.clear();
+		Gate * v = new Gate(lexem, NULL_GATE, vect, s);
 		gates.push_back(v);
 	}
 }
@@ -216,7 +221,7 @@ void SFE::printOutputs(){
 		cout << endl << "             input degree: " << curr_output->getInputs().size();
 		cout << endl << "             output degree: " << curr_output->getOutputDegree();
 		cout << endl << "             depth: " << curr_output->getDepth();
-		cout << endl << "             count sign-var: " << getCountSignVar(curr_output) << endl << endl; 
+		cout << endl << "             count sign-var: " << curr_output->getSignVar().size() << endl << endl; 
 	}
 }
 
@@ -233,7 +238,7 @@ void SFE::printGates(){
 		cout << endl << "             input degree: " << curr_output->getInputs().size();
 		cout << endl << "             output degree: " << curr_output->getOutputDegree();
 		cout << endl << "             depth: " << curr_output->getDepth();
-		cout << endl << "             count sign-var: " << getCountSignVar(curr_output) << endl << endl; 
+		cout << endl << "             count sign-var: " << curr_output->getSignVar().size() << endl << endl; 
 	}
 }
 
@@ -273,9 +278,18 @@ int SFE::getDepthRecursive(Gate * g){
 	for(int i = 0; i < g->getInputs().size(); i++){
 		Gate * prev_g = dynamic_cast<Gate *>(g->getInputs()[i]);
 		if(prev_g){
-			int d = getDepthRecursive(prev_g);
-			if(d < minDepth){
-				minDepth = d;
+			if( prev_g->getDepth() == 0)
+			{
+				int d = getDepthRecursive(prev_g);
+				if(d < minDepth){
+					minDepth = d;
+				}
+			}
+			else
+			{
+				if( prev_g->getDepth() < minDepth){
+					minDepth = prev_g->getDepth();
+				}
 			}
 		}
 	}
@@ -290,6 +304,43 @@ void SFE::setDepthRecursive(){
 	for(int i = 0; i < gates.size(); i++){
 		int depth = getDepthRecursive(gates[i]);
 		gates[i]->setDepth(depth);
+	}
+}
+
+set<Vertex*> SFE::getSignVarRecursive(Gate * g){
+	set<Vertex*> retSignVar;
+	retSignVar.clear();
+	for(int i = 0; i < g->getInputs().size(); i++){
+		Gate * prev_g = dynamic_cast<Gate *>(g->getInputs()[i]);
+		if(prev_g){
+			if( prev_g->getSignVar().size() == 0){
+				set<Vertex*> s = getSignVarRecursive(prev_g);
+				for(auto it = s.begin(); it != s.end(); ++it){
+					retSignVar.insert(*it);
+				}
+			}
+			else{
+				set<Vertex*> s = prev_g->getSignVar();
+				for(auto it = s.begin(); it != s.end(); ++it){
+					retSignVar.insert(*it);
+				}
+			}
+		}
+		else{
+			retSignVar.insert(g->getInputs()[i]);
+		}
+	}
+	return retSignVar;
+}
+
+void SFE::setSignVarRecursive(){
+	for(int i = 0; i < outputs.size(); i++){
+		set<Vertex*> sign_var = getSignVarRecursive(outputs[i]);
+		outputs[i]->setSignVar(sign_var);
+	}
+	for(int i = 0; i < gates.size(); i++){
+		set<Vertex*> sign_var = getSignVarRecursive(gates[i]);
+		gates[i]->setSignVar(sign_var);
 	}
 }
 
@@ -349,6 +400,7 @@ SFE::SFE(string filename): pv(filename){
 		}
 	}
 	setDepthRecursive();
+	setSignVarRecursive();
 	maxDepth = 0;
 	for(int i = 0; i < inputs.size(); i++){
 		if(inputs[i]->getDepth() > maxDepth)
@@ -377,7 +429,7 @@ float SFE::getPercentageTypeGate(typeGate tg){
 			countTypeGates++;
 		}
 	}
-	return (float)countTypeGates/countAllGates;
+	return (float)countTypeGates / countAllGates;
 }
 
 float SFE::getMaxInputDegree(){
@@ -412,20 +464,19 @@ float SFE::getMinInputDegree(){
 
 float SFE::getMiddleInputDegree(){
 	float middleInputDegree = 0.f;
-	int countGates = 0;
+	int countGates = outputs.size() + gates.size();;
 	for(int i = 0; i < outputs.size(); i++){
 		middleInputDegree += outputs[i]->getInputs().size();
-		countGates ++;
 	}
 	for(int i = 0; i < gates.size(); i++){
 		middleInputDegree += gates[i]->getInputs().size();
-		countGates ++;
 	}
 	return middleInputDegree / countGates;
 }
 
 float SFE::getMaxOutputDegree(){
 	float maxOutputDegree = 0.f;
+	int countGates = inputs.size() + outputs.size() + gates.size();
 	for(int i = 0; i < inputs.size(); i++){
 		if(inputs[i]->getOutputDegree() > (int)maxOutputDegree){
 			maxOutputDegree = inputs[i]->getOutputDegree();
@@ -441,7 +492,7 @@ float SFE::getMaxOutputDegree(){
 			maxOutputDegree = gates[i]->getOutputDegree();
 		}
 	}
-	return maxOutputDegree;
+	return maxOutputDegree / countGates;
 }
 
 float SFE::getMinOutputDegree(){
@@ -466,18 +517,15 @@ float SFE::getMinOutputDegree(){
 
 float SFE::getMiddleOutputDegree(){
 	float middleOutputDegree = 0.f;
-	int countGates = 0;
+	int countGates = inputs.size() + outputs.size() + gates.size();
 	for(int i = 0; i < inputs.size(); i++){
 		middleOutputDegree += inputs[i]->getOutputDegree();
-		countGates ++;
 	}
 	for(int i = 0; i < outputs.size(); i++){
 		middleOutputDegree += outputs[i]->getOutputDegree();
-		countGates ++;
 	}
 	for(int i = 0; i < gates.size(); i++){
 		middleOutputDegree += gates[i]->getOutputDegree();
-		countGates ++;
 	}
 	return middleOutputDegree / countGates;
 } 
@@ -500,6 +548,7 @@ float SFE::getPercentageMiddleDepth(){
 	return percentageMiddleDepth / countGates / (float)maxDepth;
 }
 
+/*
 int SFE::__getSignVar(Gate* g, vector<Vertex*>& signVert){
 	int countSignVar = 0;
 	for(int i = 0; i < g->getInputs().size(); i++){
@@ -548,15 +597,16 @@ int SFE::getCountSignVar(Gate * g){
 	}
 	return countSignVar;
 }
+*/
 
 float SFE::getPercentageMiddleSignVar(){
 	int countGates = outputs.size() + gates.size();
 	float percentageMiddleSignVar = 0.f;
 	for(int i = 0; i < outputs.size(); i++){
-		percentageMiddleSignVar += getCountSignVar(outputs[i]);
+		percentageMiddleSignVar += outputs[i]->getSignVar().size();
 	}
 	for(int i = 0; i < gates.size(); i++){
-		percentageMiddleSignVar += getCountSignVar(gates[i]);
+		percentageMiddleSignVar += gates[i]->getSignVar().size();
 	}
 	return percentageMiddleSignVar / countGates / (float)inputs.size();
 }
@@ -718,6 +768,62 @@ map< string, bool > SFE::isLinear(){
 	}
 	return retVal;
 }
+
+void SFE::removeWires( float percentOfRemoval ){
+	int countWires = 0;
+	int countRemovals;
+	int numberRandGate;
+	int numberRandWire;
+	srand(time(NULL));
+	for( auto it = outputs.begin(); it != outputs.end(); ++it )
+	{
+		countWires += it[ 0 ]->getInputs().size();
+	}
+	for( auto it = gates.begin(); it != gates.end(); ++it )
+	{
+		countWires += it[ 0 ]->getInputs().size();
+	}
+	countRemovals = (int)( countWires * percentOfRemoval );
+	for( int i = 0; i < countRemovals; ++i )
+	{
+		numberRandGate = rand() % ( gates.size() + outputs.size() );
+		if( numberRandGate < gates.size() )
+		{
+			vector<Vertex*> & v = gates[ numberRandGate ]->getInputs();
+			if( v.size() == 0 )
+			{
+				--i;
+				continue;
+			}
+			numberRandWire = rand() % ( v.size() );
+			v.erase( v.begin() + numberRandWire );
+		}
+		else
+		{
+			numberRandGate -= gates.size();
+			vector<Vertex*> & v = outputs[ numberRandGate ]->getInputs();
+			if( v.size() == 0 )
+			{
+				--i;
+				continue;
+			}
+			numberRandWire = rand() % ( v.size() );
+			v.erase( v.begin() + numberRandWire );
+		}
+	}
+
+	countWires = 0;
+	for( auto it = outputs.begin(); it != outputs.end(); ++it )
+	{
+		countWires += it[ 0 ]->getInputs().size();
+	}
+	for( auto it = gates.begin(); it != gates.end(); ++it )
+	{
+		countWires += it[ 0 ]->getInputs().size();
+	}
+	return;
+}
+
 /*
 map< string, bool > SFE::isMonotone(){
 	vector<pair<string,bool> > retVec;

@@ -8,7 +8,7 @@ SRC_DIR		=./src
 FLAGS		=-std=c++11 -g 
 LIB_ABC		=-labc -lm -ldl -rdynamic -lreadline -ltermcap -lpthread
 
-all: get_attr converter 
+all: get_attr converter gen_lib
 
 SFE.o:  libparser.a $(SRC_DIR)/SFE.cpp obj
 	$(CXX) $(SRC_DIR)/SFE.cpp -c -I $(HEAD_DIR) -o $(OBJ_DIR)/SFE.o -L$(LIB_DIR) -lparser $(FLAGS) 
@@ -42,6 +42,9 @@ libconverter.a: converter.o lib
 
 converter.o: libparser.a $(SRC_DIR)/converter.cpp obj
 	$(CXX) $(SRC_DIR)/converter.cpp -c -I $(HEAD_DIR) -o $(OBJ_DIR)/converter.o -L$(LIB_DIR) -lparser $(FLAGS)
+
+gen_lib: 
+	$(CXX) $(SRC_DIR)/gen_lib.cpp -o $(BIN_DIR)/gen_lib $(FLAGS)
 
 clean:
 	rm -rf ./obj

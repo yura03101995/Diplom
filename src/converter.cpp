@@ -201,7 +201,9 @@ string ConverterToGateVerilog::setOutputs(){
 			return lexem;
 		}
 		vector<Vertex*> vect(0);
-		Gate * v = new Gate(lexem, NULL_GATE, vect);
+        set<Vertex*> s;
+        s.clear();
+		Gate * v = new Gate(lexem, NULL_GATE, vect, s);
 		outputs.push_back(v);
 	}
 }
@@ -231,7 +233,9 @@ string ConverterToGateVerilog::setWire(){
 			return lexem;
 		}
 		vector<Vertex*> vect(0);
-		Gate * v = new Gate(lexem, NULL_GATE, vect);
+        set<Vertex*> s;
+        s.clear();
+		Gate * v = new Gate(lexem, NULL_GATE, vect, s);
 		gates.push_back(v);
 	}
 }

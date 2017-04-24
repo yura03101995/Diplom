@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <map>
+
 #include "elements.h"
 #include "parser.h"
 
@@ -33,6 +34,8 @@ public:
 	void printInputs();
 	void printOutputs();
 	void printFunction();
+
+    void removeWires( float percentOfRemoval );
 	
 	float getPercentageTypeGate(typeGate tg);
 	
@@ -46,7 +49,7 @@ public:
 
 	float getPercentageMiddleDepth();
 
-	int getCountSignVar(Gate * g);
+	//int getCountSignVar(Gate * g);
 	float getPercentageMiddleSignVar();
 	map< string, bool > getValueFunctionsOnSet(map<string, bool > inputValues);
 	map< string, bool > isT_1();
@@ -57,7 +60,9 @@ public:
 private:
 	int getDepthRecursive(Gate * g);
 	void setDepthRecursive();
-	int __getSignVar(Gate* g, vector<Vertex*>& signVert);
+    set<Vertex*> getSignVarRecursive(Gate * g);
+    void setSignVarRecursive();
+	//int __getSignVar(Gate* g, vector<Vertex*>& signVert);
 	string setInputs();
 	string setOutputs();
 	string setWire();

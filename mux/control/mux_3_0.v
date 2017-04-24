@@ -1,12 +1,41 @@
-module mux_3 ( ctrl0, ctrl1, ctrl2, in0, in1, in2, in3, in4, in5, in6, in7, out);
 input ctrl0, ctrl1, ctrl2, in0, in1, in2, in3, in4, in5, in6, in7;
 output out;
-assign out = ( ~ctrl0 & ~ctrl1 & ctrl2  ) ? in1 : 
-             ( ~ctrl0 & ctrl1 & ~ctrl2  ) ? in2 : 
-             ( ~ctrl0 & ctrl1 & ctrl2  ) ? in3 : 
-             ( ctrl0 & ~ctrl1 & ~ctrl2  ) ? in4 : 
-             ( ctrl0 & ~ctrl1 & ctrl2  ) ? in5 : 
-             ( ctrl0 & ctrl1 & ~ctrl2  ) ? in6 : 
-             ( ctrl0 & ctrl1 & ctrl2  ) ? in7 : 
-             in0;
-endmodule
+wire n13, n14, n15, n16, n17, n18, n19, n20, n21, n22, n23, n24, n25, n26, n27, n28, n29, n30, n31, n32, n33, n34, n35, n36, n37, n38, n39, n40, n41, n42, n43, n44, n45, n46, n47, n48, n49;
+or (n13, ctrl1, ctrl0);
+or (n14, n13, ctrl2);
+not (n15, ctrl2);
+or (n16, n13, n15);
+not (n17, ctrl1);
+or (n18, n17, ctrl0);
+or (n19, n18, ctrl2);
+or (n20, n18, n15);
+nand (n21, n15, n17, ctrl0);
+nand (n22, ctrl2, n17, ctrl0);
+nand (n23, n15, ctrl1, ctrl0);
+nand (n24, n23, in0);
+nand (n25, in7, n15, ctrl1, ctrl0);
+nand (n26, n25, n24);
+nand (n27, n26, n22);
+not (n28, in6);
+or (n29, n22, n28);
+nand (n30, n29, n27);
+nand (n31, n30, n21);
+not (n32, in5);
+or (n33, n21, n32);
+nand (n34, n33, n31);
+nand (n35, n34, n20);
+not (n36, in4);
+or (n37, n20, n36);
+nand (n38, n37, n35);
+nand (n39, n38, n19);
+not (n40, in3);
+or (n41, n19, n40);
+nand (n42, n41, n39);
+nand (n43, n42, n16);
+not (n44, in2);
+or (n45, n16, n44);
+nand (n46, n45, n43);
+nand (n47, n46, n14);
+not (n48, in1);
+or (n49, n14, n48);
+nand (out, n49, n47);

@@ -3,6 +3,8 @@
 #include <string>
 #include "SFE.h"
 
+#define EPS 1e-6
+
 using std::string;
 using std::cout;
 using std::endl;
@@ -11,37 +13,56 @@ using std::ofstream;
 int main(int argc, char ** argv){
 	string inFileName;
 	string outFileName;
+    float percentOfRemovals = 0.f;
 	ofstream fout;
-	if(argc == 3){
-		inFileName = string(argv[1]);
-		outFileName = string(argv[2]);
+    int isMux;
+	if(argc == 4){
+		inFileName = string( argv[ 1 ] );
+		outFileName = string( argv[ 2 ] );
+        isMux = atoi( argv[ 3 ] );
 	}
-	else{
+    else
+    if( argc == 5 )
+    {
+        inFileName = string( argv[ 1 ] );
+        outFileName = string( argv[ 2 ] );
+        isMux = atoi( argv[ 3 ] );
+        percentOfRemovals = atof( argv[ 4 ] );
+    }
+	else
+    {
 		cout << "Wrong arguments on command line" << endl;
 		return -1;
 	}
 	fout.open( outFileName, std::ios_base::app );
 	SFE schema( inFileName );
-	fout << schema.getPercentageTypeGate(AND)  << ' ';
-	fout << schema.getPercentageTypeGate(OR)   << ' ';
-	fout << schema.getPercentageTypeGate(NOT)  << ' ';
-	fout << schema.getPercentageTypeGate(XOR)  << ' ';
-	fout << schema.getPercentageTypeGate(XNOR) << ' ';
-	fout << schema.getPercentageTypeGate(BUF)  << ' ';
-	fout << schema.getPercentageTypeGate(NOR)  << ' ';
-	fout << schema.getPercentageTypeGate(NAND) << ' ';
+    
+    if( percentOfRemovals > EPS )
+    {
+        schema.removeWires( percentOfRemovals );
+    }
 
-	fout << schema.getMaxInputDegree() << ' ';
-	fout << schema.getMinInputDegree() << ' ';
-	fout << schema.getMiddleInputDegree() << ' ';
+	fout << schema.getPercentageTypeGate(AND)  << ",";
+	fout << schema.getPercentageTypeGate(OR)   << ",";
+	fout << schema.getPercentageTypeGate(NOT)  << ",";
+	fout << schema.getPercentageTypeGate(XOR)  << ",";
+	fout << schema.getPercentageTypeGate(XNOR) << ",";
+	fout << schema.getPercentageTypeGate(BUF)  << ",";
+	fout << schema.getPercentageTypeGate(NOR)  << ",";
+	fout << schema.getPercentageTypeGate(NAND) << ",";
 
-	fout << schema.getMaxOutputDegree() << ' ';
-	fout << schema.getMinOutputDegree() << ' ';
-	fout << schema.getMiddleOutputDegree() << ' ';
+	fout << (float) schema.getMaxInputDegree() << ",";
+	fout << (float) schema.getMinInputDegree() << ",";
+	fout << schema.getMiddleInputDegree() << ",";
 
-	fout << schema.getPercentageMiddleDepth() << ' ';
+	fout << schema.getMaxOutputDegree() << ",";
+	fout << schema.getMinOutputDegree() << ",";
+	fout << schema.getMiddleOutputDegree() << ",";
 
-	fout << schema.getPercentageMiddleSignVar() << endl;
+	fout << schema.getPercentageMiddleDepth() << ",";
+
+	fout << schema.getPercentageMiddleSignVar() << ",";
+    fout << isMux << endl;
 	fout.close();
 	//schema.printInputs();
 	//schema.printGates();

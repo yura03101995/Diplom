@@ -1,6 +1,9 @@
 #include <string>
 #include <stdio.h>
 #include <time.h>
+#include <cstdlib>
+#include <random>
+#include <functional>
 
 #include "converter.h"
 ////////////////////////////////////////////////////////////////////////
@@ -27,15 +30,23 @@ using std::string;
 using std::cout;
 using std::endl;
 
-void gen_random(string &s, const int len) {
+void gen_random(string &s, const int len, int nthread) {
+    
     srand(time(0));
+    struct drand48_data drand_buf;
+    double x;
+    int seed;
+    seed = rand() + nthread * 1999;
+    srand48_r (seed, &drand_buf);
+
     static const char alphanum[] =
         "0123456789"
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         "abcdefghijklmnopqrstuvwxyz";
 
     for (int i = 0; i < len; ++i) {
-        s += alphanum[rand() % (sizeof(alphanum) - 1)];
+        drand48_r (&drand_buf, &x);
+        s += alphanum[ (int) (x * 62) ];
     }
 }
 
@@ -50,17 +61,17 @@ int main(int argc, char** argv){
     string libName;
     string tempFileName = "";
     char Command[1000];
-
+    int nthread;
     //////////////////////////////////////////////////////////////////////////
     // get the input file name
-    if(argc != 4){
+    if(argc != 5){
 		cout << "ERROR: Number argument's is wrong!" << endl;
         return -1;
 	}// parameters
 	ifilename = argv[1];
 	ofilename = argv[2];
 	libName = argv[3];
-
+    nthread = atoi( argv[ 4 ] );
     //////////////////////////////////////////////////////////////////////////
     // start the ABC framework
     Abc_Start();
@@ -110,7 +121,7 @@ int main(int argc, char** argv){
 
     //////////////////////////////////////////////////////////////////////////
     // write verilog
-    gen_random(tempFileName, 7);
+    gen_random(tempFileName, 7, nthread);
     sprintf( Command, "write_verilog %s", tempFileName.c_str() );
     if ( Cmd_CommandExecute( pAbc, Command ) )
     {
