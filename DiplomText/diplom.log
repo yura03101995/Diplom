@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.10)  10 APR 2017 12:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.10)  10 MAY 2017 13:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,34 +655,36 @@ zlibraryintersections.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersection
 s.code.tex
 \pgf@intersect@solutions=\count140
-))
+)) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen179
+)
 \c@mydef=\count141
- (./diplom.aux
-LaTeX Font Info:    Try loading font information for T2A+cmr on input line 20.
 
-(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+(./diplom.aux
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 20.
+ (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
 \openout1 = `diplom.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -722,13 +724,13 @@ ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count142
-\scratchdimen=\dimen179
+\scratchdimen=\dimen180
 \scratchbox=\box47
 \nofMPsegments=\count143
 \nofMParguments=\count144
 \everyMPshowfont=\toks42
 \MPscratchCnt=\count145
-\MPscratchDim=\dimen180
+\MPscratchDim=\dimen181
 \MPnumerator=\count146
 \makeMPintoPDFobject=\count147
 \everyMPtoPDFconversion=\toks43
@@ -748,7 +750,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 39.
+Package hyperref Info: Link coloring OFF on input line 41.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -758,33 +760,35 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count148
 )
-LaTeX Info: Redefining \ref on input line 39.
-LaTeX Info: Redefining \pageref on input line 39.
-LaTeX Info: Redefining \nameref on input line 39.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
 
 (./diplom.out) (./diplom.out)
 \@outlinefile=\write4
 \openout4 = `diplom.out'.
 
- <msu2.jpg, id=43, 401.5pt x 177.66376pt>
-File: msu2.jpg Graphic file (type jpg)
+ <image/msu2.jpg, id=43, 401.5pt x 177.66376pt>
+File: image/msu2.jpg Graphic file (type jpg)
 
-<use msu2.jpg>
-Package pdftex.def Info: msu2.jpg used on input line 43.
-(pdftex.def)             Requested size: 170.71393pt x 75.54268pt.
+<use image/msu2.jpg>
+Package pdftex.def Info: image/msu2.jpg used on input line 50.
+(pdftex.def)             Requested size: 160.59715pt x 71.06424pt.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 85.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./msu2.jpg>] (./diplom.toc
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./image/msu2.jpg>] (./dipl
+om.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 6.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 6.
@@ -796,248 +800,359 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `diplom.toc'.
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 143.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 143.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 143.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 143.
+(babel)             in language  on input line 92.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.92 \newpage
+              [1]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 94.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 94.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 125.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 125.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 125.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 125.
  [2]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 129.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 129.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 175.
+(babel)             in language  on input line 129.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 175.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 175.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 175.
+(babel)             in language  on input line 129.
  [3]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 180.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 180.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 180.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 180.
+(babel)             in language  on input line 132.
  [4]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 133.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 181.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 232.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 232.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 232.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 232.
+(babel)             in language  on input line 133.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 197.
 
-[5]
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 197.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 235.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 235.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 235.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 235.
+(babel)             in language  on input line 206.
+ [5]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 241.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 241.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 241.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 241.
  [6]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 236.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 236.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 247.
+(babel)             in language  on input line 250.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 247.
+(babel)             in language  on input line 250.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 247.
+(babel)             in language  on input line 250.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 247.
+(babel)             in language  on input line 250.
  [7]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 251.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 251.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 253.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 253.
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 262.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 263.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 264.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 265.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 266.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 267.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 269.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 275.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 275.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 284.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 292.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 292.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 292.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 292.
+
+
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 278.
+(babel)             in language  on input line 297.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 278.
+(babel)             in language  on input line 297.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 278.
+(babel)             in language  on input line 297.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 278.
- [8]
+(babel)             in language  on input line 297.
+[8]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 280.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 280.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 288.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 288.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 288.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 288.
+(babel)             in language  on input line 310.
  [9]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 290.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 290.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 303.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 303.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 303.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 303.
- [10]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 305.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 305.
-Package babel Info: Redefining russian shorthand "|
 (babel)             in language  on input line 312.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language  on input line 312.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 312.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 312.
- [11]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 313.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 313.
+ <image/AIG.png, id=183, 401.5pt x 247.92625pt>
+File: image/AIG.png Graphic file (type png)
+ <use image/AIG.png>
+Package pdftex.def Info: image/AIG.png used on input line 338.
+(pdftex.def)             Requested size: 170.71393pt x 105.41832pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
-\T2A/cmr/m/n/12 Разработана ре-а-ли-за-ция на язы-ке С++ СФЭ на ЭВМ с воз-мож-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
-\T2A/cmr/m/n/12 ность вы-чис-ле-ния опи-сан-ных вы-ше при-зна-ков и счи-ты-ва-н
-ия опи-са-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
-\T2A/cmr/m/n/12 ния с файла-описания. Раз-ра-бо-тан ге-не-ра-тор слу-чай-ных СФ
-Э, ре-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
-\T2A/cmr/m/n/12 а-ли-зу-ю-щих муль-ти-плек-со-ры. На-пи-сан ряд ути-лит, для ра
--бо-ты с
- []
-
-
-Underfull \hbox (badness 5756) in paragraph at lines 314--316
-\T2A/cmr/m/n/12 Verilog-представлением схем. Весь ис-ход-ный код до-сту-пен по 
-ссыл-ке:
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+[]\T2A/cmr/m/n/12 Будем на-зы-вать И-узлом -- про-из-воль-ную вер-ши-ну инверсн
+о-
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 350.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 350.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 350.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 318.
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 323--325
-[]\T2A/cmr/m/n/12 Chipworks: \T2A/cmr/m/it/12 "Intel‘s 22-nm Tri-gate Transisto
+(babel)             in language  on input line 350.
+[10 <./image/AIG.png>]
+Underfull \hbox (badness 2538) in paragraph at lines 350--351
+[][]\T2A/cmr/bx/n/12 Определение 4.7. []\T2A/cmr/m/it/12 Од-но-уров-не-вый стру
+к-тур-но хэ-ши-ро-ван-ный инверсно-
+ []
+
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 374.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 374.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 374.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 374.
+[11]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 375.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 375.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 390.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 390.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 390.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 390.
+ [12]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 391.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 391.
+ <image/cross_validation.png, id=210, 462.528pt x 346.896pt>
+File: image/cross_validation.png Graphic file (type png)
+
+<use image/cross_validation.png>
+Package pdftex.def Info: image/cross_validation.png used on input line 411.
+(pdftex.def)             Requested size: 256.07741pt x 192.06905pt.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 417.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 417.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 417.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 417.
+ [13 <./image/cross_validation.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
+[]\T2A/cmr/m/n/12 Не муль-ти-плек-
+ []
+
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 454.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 454.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 454.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 454.
+[14]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 456.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 456.
+
+
+LaTeX Warning: Hyper reference `https://github.com/yura03101995/Diplom' on page
+ 15 undefined on input line 459.
+
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 463.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 463.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 463.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 463.
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 468--470
+[]\T2A/cmr/m/n/12 Chipworks: \T2A/cmr/m/it/12 "Intel's 22-nm Tri-gate Transisto
 rs Exposed"\T2A/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--325
+Underfull \hbox (badness 10000) in paragraph at lines 468--470
 \T2A/cmr/m/n/12 http://www.chipworks.com/blog/technologyblog/2012/04/23/intels-
 22-nm-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--332
+Underfull \hbox (badness 10000) in paragraph at lines 474--477
 []\T2A/cmr/m/n/12 DARPA: \T2A/cmr/m/it/12 "Integrity and Reliability of Integra
 ted Circuits
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--332
+Underfull \hbox (badness 10000) in paragraph at lines 474--477
 \T2A/cmr/m/it/12 (IRIS)"\T2A/cmr/m/n/12 , http://www.darpa.mil/Our_Work/MTO/Pro
 grams/
  []
 
 
-Underfull \hbox (badness 2012) in paragraph at lines 333--335
+Underfull \hbox (badness 2012) in paragraph at lines 478--480
 []\T2A/cmr/m/n/12 Jeyavijayan (Jv) Rajendran, Ozgur Sinanoglu, and Ramesh Karri
 : \T2A/cmr/m/it/12 "Is
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 346.
+(babel)             in language  on input line 507.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 346.
+(babel)             in language  on input line 507.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 346.
+(babel)             in language  on input line 507.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 346.
-[13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 346.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 346.
+(babel)             in language  on input line 507.
+[16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
  (./diplom.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 346.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 346.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
 Package rerunfilecheck Info: File `diplom.out' has not changed.
-(rerunfilecheck)             Checksum: 951D2281F6AB80242E4886A45099EAD3;2016.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 346.
+(rerunfilecheck)             Checksum: A440518F4EC2C68D1107A71552F72FA7;2144.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 507.
  ) 
 Here is how much of TeX's memory you used:
- 21972 strings out of 494466
- 378256 string characters out of 6172530
- 460753 words of memory out of 5000000
- 24795 multiletter control sequences out of 15000+600000
- 14827 words of font info for 40 fonts, out of 8000000 for 9000
+ 22054 strings out of 494466
+ 379551 string characters out of 6172530
+ 462361 words of memory out of 5000000
+ 24843 multiletter control sequences out of 15000+600000
+ 17360 words of font info for 45 fonts, out of 8000000 for 9000
  452 hyphenation exceptions out of 8191
- 55i,6n,54p,789b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1440.600pk> </home/
+ 55i,11n,54p,789b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1095.600pk> </home/
 thuglife/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati1200.600pk> </home/thuglife/.
-texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600pk> </home/thuglife/.texmf-var/
-fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk> </home/thuglife/.texmf-var/fonts/pk/l
-jfour/lh/lh-t2a/larm1440.600pk> </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/l
-h-t2a/labx1200.600pk> </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm
-0800.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
-mbols/msbm7.pfb>
-Output written on diplom.pdf (13 pages, 242842 bytes).
+texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600pk> </home/thuglife/.texmf-var/
+fonts/pk/ljfour/lh/lh-t2a/larm1728.600pk> </home/thuglife/.texmf-var/fonts/pk/l
+jfour/lh/lh-t2a/labx1728.600pk> </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/l
+h-t2a/labx1440.600pk> </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm
+1440.600pk> </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk
+> </home/thuglife/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1000.600pk></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on diplom.pdf (17 pages, 311528 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 777 PDF objects out of 1000 (max. 8388607)
+ 288 compressed objects within 3 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 100 words of extra memory for PDF output out of 10000 (max. 10000000)
 

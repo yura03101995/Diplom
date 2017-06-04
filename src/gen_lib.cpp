@@ -40,7 +40,7 @@ int main( int argc, char** argv )
     drand48_r (&drand_buf, &x);
     fout << "GATE nand4  " << (int) (x * 10 + 1) << "   O=!(a*b*c*d);   PIN * INV 1 999 1.4 0.4 1.4 0.4" << std::endl;
     drand48_r (&drand_buf, &x);
-    fout << "GATE nor2   " << (int) (x * 10 + 1)  << "   O=!(a+b);       PIN * INV 1 999 1.4 0.5 1.4 0.5" << std::endl;
+    fout << "GATE nor2   " << (int) (x * 10 + 1) << "   O=!(a+b);       PIN * INV 1 999 1.4 0.5 1.4 0.5" << std::endl;
     drand48_r (&drand_buf, &x);
     fout << "GATE nor3   " << (int) (x * 7 + 1)  << "   O=!(a+b+c);     PIN * INV 1 999 2.4 0.7 2.4 0.7" << std::endl;
     drand48_r (&drand_buf, &x);
